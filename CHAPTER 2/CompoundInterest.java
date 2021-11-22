@@ -1,36 +1,19 @@
 public class CompoundInterest 
 {
-	public static float calculateAfterYears(float startingValue, float annualInterestRate, int years)
+	public static float calculateAfterPeriod(float startingValue, float annualInterestRate, int periodOfTime, String mode)
 	{
 		float multiplicationFactor = 1;
 		
-		for(int i = 0; i < years; i++)
+		for(int i = 0; i < periodOfTime; i++)
 		{
-			multiplicationFactor *= (1 + annualInterestRate / 100.0F);
-		}
-		
-		return startingValue * multiplicationFactor;
-	}
-	
-	public static float calculateAfterMonths(float startingValue, float annualInterestRate, int months)
-	{
-		float multiplicationFactor = 1;
-		
-		for(int i = 0; i < months; i++)
-		{
-			multiplicationFactor *= (1 + (annualInterestRate / 12.0F) / 100.0F);
-		}
-		
-		return startingValue * multiplicationFactor;
-	}
-	
-	public static float calculateAfterDays(float startingValue, float annualInterestRate, int days)
-	{
-		float multiplicationFactor = 1;
-		
-		for(int i = 0; i < days; i++)
-		{
-			multiplicationFactor *= (1 + (annualInterestRate / 365.0F) / 100.0F);
+			if(mode.equals("Anually"))
+				multiplicationFactor *= (1 + annualInterestRate / 100.0F);
+			
+			if(mode.equals("Monthly"))
+				multiplicationFactor *= (1 + (annualInterestRate / 12.0F) / 100.0F);
+			
+			if(mode.equals("Daily"))
+				multiplicationFactor *= (1 + (annualInterestRate / 365.0F) / 100.0F);
 		}
 		
 		return startingValue * multiplicationFactor;
