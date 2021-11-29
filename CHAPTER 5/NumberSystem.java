@@ -16,6 +16,22 @@ public class NumberSystem
 		return result;
 	}
 	
+	public static String decimalToOctal(int decimal)
+	{
+		String result = "";
+		int number = decimal;
+		
+		while(number != 0)
+		{
+			result += number % 8;
+			number = number / 8;
+		}
+		
+		result = reverseString(result);
+		
+		return result;
+	}
+	
 	private static char decToHexa(int decimal)
 	{
 		if(decimal <= 9)
