@@ -2,6 +2,12 @@ public class MathConstant
 {
 	public static double pi(int precision)
 	{
+		if(precision <= 0)
+		{
+			System.out.println("Precision cannot be negative or equal to 0!");
+			return -1;
+		}
+		
 		double accumulator = 0;
 		
 		for(int i = 1; i <= precision; i++)
@@ -14,6 +20,12 @@ public class MathConstant
 	
 	public static double e(int precision)
 	{
+		if(precision <= 0)
+		{
+			System.out.println("Precision cannot be negative or equal to 0!");
+			return -1;
+		}
+		
 		double accumulator = 0;
 		
 		for(int i = 1; i <= precision; i++)
