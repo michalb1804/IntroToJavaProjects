@@ -9,11 +9,13 @@ public class BinarySearch
 		int startingIndex = 0;
 		int endingIndex = array.length - 1;
 		int prevMiddle = 0;
-		int middle = (array.length - 1) / 2;
+		int middle = 0;
 		boolean found = false;
 		
 		while(!found)
 		{
+			middle = (startingIndex + endingIndex) / 2;
+			
 			if(array[middle] == element)
 			{
 				System.out.println("Element found on position: " + middle);
@@ -27,13 +29,11 @@ public class BinarySearch
 			{
 				endingIndex = middle - 1;
 				prevMiddle = middle;
-				middle = (startingIndex + endingIndex) / 2;
 			}
 			else
 			{
 				startingIndex = middle + 1;
 				prevMiddle = middle;
-				middle = (startingIndex + endingIndex) / 2;
 			}
 		}
 		
