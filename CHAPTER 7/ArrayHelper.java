@@ -64,6 +64,41 @@ public class ArrayHelper
 		return arrayMerged;
 	}
 	
+	public static int[][] partition(int[] array, int pivotIndex)
+	{
+		int[][] arrays = new int[2][];
+		
+		int[] lessThanPivotTemp = new int[array.length - 1];
+		int[] greaterThanPivotTemp = new int[array.length - 1];
+		int counterLess = 0;
+		int counterGreater = 0;
+		
+		for(int i = 0; i < array.length; i++)
+		{
+			if(array[i] < array[pivotIndex])
+			{
+				lessThanPivotTemp[counterLess] = array[i];
+				counterLess++;
+			}
+			else if(array[i] > array[pivotIndex])
+			{
+				greaterThanPivotTemp[counterGreater] = array[i];
+				counterGreater++;
+			}
+		}
+		
+		int[] lessThanPivot = new int[counterLess];
+		int[] greaterThanPivot = new int[counterGreater];
+		
+		System.arraycopy(lessThanPivotTemp, 0, lessThanPivot, 0, counterLess);
+		System.arraycopy(greaterThanPivotTemp, 0, greaterThanPivot, 0, counterGreater);
+		
+		arrays[0] = lessThanPivot;
+		arrays[1] = greaterThanPivot;
+		
+		return arrays;
+	}
+	
 	public static int compareLength(int[] array1, int[] array2)
 	{
 		if(array1.length > array2.length)
