@@ -5,14 +5,11 @@ public class SquareMatrix
 	private final int SIZE;
 	private double[][] matrix;
 	
-	public SquareMatrix()
+	public SquareMatrix(int SIZE) throws Exception
 	{
-		SIZE = 0;
-		matrix = new double[0][0];
-	}
-	
-	public SquareMatrix(int SIZE)
-	{
+		if(SIZE <= 0)
+			throw new Exception("Size must be a positive number!");
+		
 		this.SIZE = SIZE;
 		matrix = new double[SIZE][SIZE];
 	}
@@ -32,6 +29,8 @@ public class SquareMatrix
 		}
 		
 		System.out.println();
+		
+		scanner.close();
 	}
 	
 	public double sumMajorDiagonal()
